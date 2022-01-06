@@ -33,7 +33,7 @@ class App {
 
 		this.scene.add(this.mesh);
 
-		const controls = new OrbitControls(this.camera, this.render.domElement);
+		const controls = new OrbitControls(this.camera, this.renderer.domElement);
 
 		window.addEventListener('resize', this.resize.bind(this));
 	}
