@@ -30,8 +30,7 @@ class App {
             color: 0x869C9C,
             roughness: 0.0,
             metalness: 1.0,
-            flatShading: true,
-            envMap: new THREE.Texture()
+            flatShading: true
         });
 
         this.discoBall = new THREE.Mesh(geometry, material);
