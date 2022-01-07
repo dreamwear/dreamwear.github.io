@@ -1,5 +1,5 @@
-import * as THREE from './libs/three/three.module.js';
-import { OrbitControls } from './libs/three/jsm/OrbitControls.js';
+import * as THREE from '../libs/three/three.module.js';
+import { OrbitControls } from '../libs/three/jsm/OrbitControls.js';
 
 class App {
     constructor() {
@@ -28,7 +28,7 @@ class App {
         // const geometry = new THREE.TorusKnotGeometry(3, 1, 100, 16);
         const shape = new THREE.Shape();
         const outerRadius = 0.8;
-        const innerRadius = 0.2;
+        const innerRadius = 0.4;
         const PI2 = Math.PI * 2;
         const inc = PI2 / 10;
 
