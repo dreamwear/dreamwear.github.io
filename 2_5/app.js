@@ -24,7 +24,7 @@ class App {
         pointLight.position.x = 10;
         pointLight.position.y = 50;
         pointLight.position.z = 130;
-        scene.add(pointLight);
+        this.scene.add(pointLight);
 
         this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
         this.renderer.setPixelRatio(window.devicePixelRatio);
