@@ -25,12 +25,12 @@ class App {
         container.appendChild(this.renderer.domElement);
 
         //Replace Box with Circle, Cone, Cylinder, Dodecahedron, Icosahedron, Octahedron, Plane, Sphere, Tetrahedron, Torus or TorusKnot
-        const geometry = new THREE.CircleBufferGeometry();
+        const geometry = new THREE.TorusKnotGeometry(10, 3, 100, 16);
         const material = new THREE.MeshStandardMaterial({ color: 0xFF0000 });
 
-        this.mesh = new THREE.Mesh(geometry, material);
+        this.torusKnot = new THREE.Mesh(geometry, material);
 
-        this.scene.add(this.mesh);
+        this.scene.add(this.torusKnot);
 
         const controls = new OrbitControls(this.camera, this.renderer.domElement);
 
@@ -46,7 +46,7 @@ class App {
     }
 
     render() {
-        this.mesh.rotateY(0.01);
+        this.torusKnot.rotateY(0.01);
         this.renderer.render(this.scene, this.camera);
     }
 }
