@@ -24,13 +24,13 @@ class App {
         this.renderer.setSize(window.innerWidth, window.innerHeight);
         container.appendChild(this.renderer.domElement);
 
-        const geometry = new THREE.TorusKnotBufferGeometry(0.8, 0.3, 120, 16);
+        const geometry = new THREE.SphereGeometry(15, 32, 16);
 
-        const material = new THREE.MeshPhongMaterial({ color: 0x0000FF, specular: 0x444444, shininess: 30 });
+        const material = new THREE.MeshStandardMaterial({ color: 0x869C9C, roughness: 0, metalness: 1, flatShading: true });
 
-        this.mesh = new THREE.Mesh(geometry, material);
+        this.discoBall = new THREE.Mesh(geometry, material);
 
-        this.scene.add(this.mesh);
+        this.scene.add(this.discoBall);
 
         const controls = new OrbitControls(this.camera, this.renderer.domElement);
 
@@ -46,7 +46,7 @@ class App {
     }
 
     render() {
-        this.mesh.rotateY(0.01);
+        this.discoBall.rotateY(0.01);
         this.renderer.render(this.scene, this.camera);
     }
 }
