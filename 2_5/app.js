@@ -12,19 +12,12 @@ class App {
         this.scene = new THREE.Scene();
         this.scene.background = new THREE.Color(0xaaaaaa);
 
-        const ambient = new THREE.AmbientLight(0x000000);
+        const ambient = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 0.3);
         this.scene.add(ambient);
 
-        // const light = new THREE.DirectionalLight();
-        // light.position.set(0.2, 1, 1);
-        // this.scene.add(light);
-
-        // create a point light
-        const pointLight = new THREE.PointLight(0xFFFFFF);
-        pointLight.position.x = 10;
-        pointLight.position.y = 50;
-        pointLight.position.z = 130;
-        this.scene.add(pointLight);
+        const light = new THREE.DirectionalLight();
+        light.position.set(0.2, 1, 1);
+        this.scene.add(light);
 
         this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
         this.renderer.setPixelRatio(window.devicePixelRatio);
