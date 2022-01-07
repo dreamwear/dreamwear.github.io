@@ -19,14 +19,14 @@ class App {
         light.position.set(0.2, 1, 1);
         this.scene.add(light);
 
-        this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        this.renderer = new THREE.WebGLRenderer({ antialias: true });
         this.renderer.setPixelRatio(window.devicePixelRatio);
         this.renderer.setSize(window.innerWidth, window.innerHeight);
         container.appendChild(this.renderer.domElement);
 
         const geometry = new THREE.SphereGeometry(15, 32, 16);
 
-        const material = new THREE.MeshStandardMaterial({ color: 0x869C9C, roughness: 0, metalness: 1, flatShading: true });
+        const material = new THREE.MeshStandardMaterial({ color: 0x869C9C, roughness: 0.0, metalness: 1.0, flatShading: true });
 
         this.discoBall = new THREE.Mesh(geometry, material);
 

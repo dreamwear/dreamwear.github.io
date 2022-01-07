@@ -24,8 +24,8 @@ class App {
 		this.renderer.setSize(window.innerWidth, window.innerHeight);
 		container.appendChild(this.renderer.domElement);
 
-
 		const geometry = new THREE.BoxBufferGeometry();
+
 		const material = new THREE.MeshStandardMaterial({ color: 0xff0000 });
 
 		this.mesh = new THREE.Mesh(geometry, material);
