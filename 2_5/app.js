@@ -28,9 +28,10 @@ class App {
 
         const material = new THREE.MeshStandardMaterial({
             color: 0x869C9C,
-            emissive: 0x000000,
             roughness: 0.0,
-            metalness: 1.0
+            metalness: 1.0,
+            flatShading: true,
+            envMap: new THREE.Texture()
         });
 
         this.discoBall = new THREE.Mesh(geometry, material);
