@@ -26,7 +26,12 @@ class App {
 
         const geometry = new THREE.SphereGeometry(15, 32, 16);
 
-        const material = new THREE.MeshStandardMaterial({ color: 0x869C9C, roughness: 0.0 });
+        const material = new THREE.MeshStandardMaterial({
+            color: 0x869C9C,
+            emissive: 0x000000,
+            roughness: 0.0,
+            metalness: 1.0
+        });
 
         this.discoBall = new THREE.Mesh(geometry, material);
 
