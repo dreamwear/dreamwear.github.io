@@ -30,7 +30,7 @@ class App {
 
         // Reflection texture envMap
         const path = "../examples/textures/cube/SwedishRoyalCastle/";
-        const format = '.jpg';
+        const format = '.jpeg';
         const urls = [
             path + 'px' + format, path + 'nx' + format,
             path + 'py' + format, path + 'ny' + format,
