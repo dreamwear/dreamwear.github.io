@@ -69,6 +69,10 @@ class App {
             'office-chair.glb',
             (gltf) => {
                 self.chair = gltf.scene;
+
+                const bbox = new THREE.Box3().setFromObject(gltf.scene);
+                console.log(`Min: ${vector3ToString(bbox.min, 2)} - Max: ${vector3ToString(bbox.max, 2)}`);
+
                 self.scene.add(gltf.scene);
                 self.loadingBar.visible = false;
                 self.renderer.setAnimationLoop(self.render.bind(self));
