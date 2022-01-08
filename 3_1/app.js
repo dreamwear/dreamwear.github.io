@@ -72,12 +72,12 @@ class App {
             object.position.z = this.random(-2, 2);
 
             this.room.add(object);
-
         }
     }
 
     setupXR() {
-
+        this.renderer.xr.enabled = true;
+        document.body.appendChild(VRButton.createButton(this.renderer));
     }
 
     resize() {
