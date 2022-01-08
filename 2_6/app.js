@@ -34,6 +34,7 @@ class App {
 
         //Add code here
         this.loadingBar = new LoadingBar();
+        this.loadGLTF();
 
         this.controls = new OrbitControls(this.camera, this.renderer.domElement);
         this.controls.target.set(0, 3.5, 0);
@@ -62,6 +63,23 @@ class App {
 
     loadGLTF() {
         const self = this;
+        const loader = new GLTFLoader().setPath('../assets/');
+
+        loader.load(
+            'office-chair.glb',
+            (gltf) => {
+                self.chair = gltf.scene;
+                self.scene.add(gltf.scene);
+                self.loadingBar.visible = false;
+                self.renderer.setAnimationLoop(self.render.bind(self));
+            },
+            (xhr) => {
+                self.loadingBar.progress = xhr.loaded / xhr.total;
+            },
+            (err) => {
+                console.log('An error  has  happened!');
+            }
+        )
     }
 
     loadFBX() {
