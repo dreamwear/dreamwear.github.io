@@ -40,7 +40,7 @@ class App {
         reflectionCube.format = THREE.RGBFormat;
 
         // Geometry
-        const geometry = new THREE.SphereGeometry(15, 32, 16);
+        const geometry = new THREE.SphereGeometry(15, 64, 32);
 
         // Material
         const material = new THREE.MeshStandardMaterial({
