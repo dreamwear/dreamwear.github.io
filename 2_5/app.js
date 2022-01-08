@@ -71,7 +71,7 @@ class App {
     }
 
     render() {
-        this.discoBall.rotateY(0.01);
+        this.discoBall.rotateY(0.005);
         this.renderer.render(this.scene, this.camera);
     }
 }
