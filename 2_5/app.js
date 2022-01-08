@@ -44,9 +44,9 @@ class App {
 
         // Material
         const material = new THREE.MeshStandardMaterial({
-            color: 0x878787,
-            emissive: 0x4F7387,
-            roughness: 0.5,
+            color: 0x404040,
+            emissive: 0x324752,
+            roughness: 0.2,
             metalness: 1.0,
             flatShading: true,
             envMap: reflectionCube
