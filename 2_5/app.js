@@ -6,12 +6,15 @@ class App {
         const container = document.createElement('div');
         document.body.appendChild(container);
 
+        // Camera
         this.camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 10, 100);
         this.camera.position.set(0, 0, 35);
 
+        // Scene
         this.scene = new THREE.Scene();
         this.scene.background = new THREE.Color(0xaaaaaa);
 
+        //  Lighting
         const ambient = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 0.3);
         this.scene.add(ambient);
 
@@ -19,32 +22,37 @@ class App {
         light.position.set(0.2, 1, 1);
         this.scene.add(light);
 
+        // Renderer
         this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
         this.renderer.setPixelRatio(window.devicePixelRatio);
         this.renderer.setSize(window.innerWidth, window.innerHeight);
         container.appendChild(this.renderer.domElement);
 
-        //     var path = "../../examples/textures/cube/SwedishRoyalCastle/";
-        // var format = '.jpg';
-        // var urls = [
-        // 	path + 'px' + format, path + 'nx' + format,
-        // 	path + 'py' + format, path + 'ny' + format,
-        // 	path + 'pz' + format, path + 'nz' + format
-        // ];
+        // Reflection texture envMap
+        const path = "../examples/textures/cube/SwedishRoyalCastle/";
+        const format = '.jpg';
+        const urls = [
+            path + 'px' + format, path + 'nx' + format,
+            path + 'py' + format, path + 'ny' + format,
+            path + 'pz' + format, path + 'nz' + format
+        ];
+        let reflectionCube = new THREE.CubeTextureLoader().load(urls);
+        reflectionCube.format = THREE.RGBFormat;
 
-        // var reflectionCube = new THREE.CubeTextureLoader().load( urls );
-        // reflectionCube.format = THREE.RGBFormat;
-
+        // Geometry
         const geometry = new THREE.SphereGeometry(15, 32, 16);
 
-        const material = new THREE.MeshPhysicalMaterial({
-            color: 0x8AADC1,
-            emissive: 0x000000,
-            roughness: 0.0,
+        // Material
+        const material = new THREE.MeshStandardMaterial({
+            color: 0x878787,
+            emissive: 0x4F7387,
+            roughness: 0.5,
             metalness: 1.0,
-            flatShading: true
+            flatShading: true,
+            envMap: reflectionCube
         });
 
+        // Mesh
         this.discoBall = new THREE.Mesh(geometry, material);
 
         this.scene.add(this.discoBall);
