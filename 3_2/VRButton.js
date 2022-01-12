@@ -16,7 +16,6 @@ class VRButton {
             document.body.appendChild(button);
 
             navigator.xr.isSessionSupported('immersive-vr').then((supported) => {
-                console.log('supported:', supported);
                 supported ? this.showEnterVR(button) : this.showWebXRNotFound(button);
             });
         } else {
@@ -40,6 +39,33 @@ class VRButton {
             button.textContent = (currentSession === null) ? 'ENTER VR' : 'EXIT VR';
             button.style.opacity = '1';
         }
+
+        button.onmouseleavve = () => {
+            button.style.fontSize = '30px';
+            button.innerHTML = '<i class="fas fa-vr-cardboard"></i>';
+            button.style.opacity = '0.5';
+        }
+
+        const self = this;
+
+        const onSessionStarted = session => {
+            session.addEventListener('end', onSessionEnded);
+
+            self.renderer.xr.setSession(session);
+            self.stylizeElement(button, false, 12, true);
+            button.textContent = 'EXIT VR';
+
+            currentSession = session;
+        }
+
+        const onSessionEnded = session => {
+            session.removeEventListener('end', onSessionEnded);
+
+            self.stylizeElement(button, true, 12, true);
+            button.textContent = 'ENTER VR';
+
+            currentSession = null;
+        }
     }
 
     disableButton(button) {
@@ -55,7 +81,6 @@ class VRButton {
     }
 
     showWebXRNotFound(button) {
-        console.log('showWebXRNotFound');
         this.stylizeElement(button, false);
         this.disableButton(button);
 
