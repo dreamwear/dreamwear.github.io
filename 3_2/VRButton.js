@@ -47,7 +47,6 @@ class VRButton {
         this.stylizeElement(button, true, 30, true);
 
         button.style.display = '';
-        button.style.zIndex = '999999999';
         button.style.right = '20px';
         button.style.width = '80px';
         button.style.cursor = 'pointer';
@@ -135,7 +134,7 @@ class VRButton {
         element.style.textAlign = 'center';
         element.style.opacity = '0.5';
         element.style.outline = 'none';
-        element.style.zIndex = '999';
+        element.style.zIndex = '999999999';
     }
 };
 
