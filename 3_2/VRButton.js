@@ -47,6 +47,7 @@ class VRButton {
         this.stylizeElement(button, true, 30, true);
 
         button.style.display = '';
+        button.style.zIndex = '999999999';
         button.style.right = '20px';
         button.style.width = '80px';
         button.style.cursor = 'pointer';
