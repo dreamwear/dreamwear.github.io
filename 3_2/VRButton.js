@@ -26,9 +26,13 @@ class VRButton {
     }
 
     showEnterVR(button) {
-        // this.stylizeElement(button, true,30, true);
+        this.stylizeElement(button, true, 30, true);
 
-        // button.style.diplay = '';
+        button.style.diplay = '';
+        button.style.right = '20px';
+        button.style.width = '80px';
+        button.style.cursor = 'pointer';
+        button.innerHTML = '<i class="fas fa-vr-cardboard"></i>';
     }
 
     disableButton(button) {
@@ -48,7 +52,7 @@ class VRButton {
         this.stylizeElement(button, false);
         this.disableButton(button);
 
-        button.style.diplay = '';
+        button.style.display = '';
         button.style.width = '100%';
         button.style.right = '0px';
         button.style.bottom = '0px';
