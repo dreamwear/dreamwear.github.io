@@ -38,13 +38,13 @@ class VRButton {
             button.style.fontSize = '12px';
             button.textContent = (currentSession === null) ? 'ENTER VR' : 'EXIT VR';
             button.style.opacity = '1';
-        }
+        };
 
-        button.onmouseleavve = () => {
+        button.onmouseleave = () => {
             button.style.fontSize = '30px';
             button.innerHTML = '<i class="fas fa-vr-cardboard"></i>';
             button.style.opacity = '0.5';
-        }
+        };
 
         const self = this;
 
@@ -56,7 +56,7 @@ class VRButton {
             button.textContent = 'EXIT VR';
 
             currentSession = session;
-        }
+        };
 
         const onSessionEnded = session => {
             session.removeEventListener('end', onSessionEnded);
@@ -65,7 +65,16 @@ class VRButton {
             button.textContent = 'ENTER VR';
 
             currentSession = null;
-        }
+        };
+
+        button.onclick = () => {
+            if (currentSession === null) {
+                const initSession = { optionalFeatures: ['local-floor', 'bounded-floor'] };
+                navigator.xr.requestSession('immersive-vr', initSession).then(onSessionStarted);
+            } else {
+                currentSession.end();
+            }
+        };
     }
 
     disableButton(button) {
