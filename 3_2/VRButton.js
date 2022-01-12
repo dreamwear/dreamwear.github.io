@@ -15,9 +15,10 @@ class VRButton {
             button.style.height = '40px';
             document.body.appendChild(button);
 
-            navigator.xr.isSessionSupported('immersive-vrx').then(supported => {
+            navigator.xr.isSessionSupported('immersive-vrx').then((supported) => {
+                console.log('supported:', supported);
                 supported ? this.showEnterVR(button) : this.showWebXRNotFound(button);
-            })
+            });
         } else {
 
         }
@@ -25,7 +26,9 @@ class VRButton {
     }
 
     showEnterVR(button) {
+        // this.stylizeElement(button, true,30, true);
 
+        // button.style.diplay = '';
     }
 
     disableButton(button) {
@@ -41,6 +44,7 @@ class VRButton {
     }
 
     showWebXRNotFound(button) {
+        console.log('showWebXRNotFound');
         this.stylizeElement(button, false);
         this.disableButton(button);
 
