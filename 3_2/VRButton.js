@@ -4,28 +4,35 @@
  * @author NikLever / http://niklever.com
  */
 
-class VRButton{
+class VRButton {
 
-	constructor( renderer ) {
+    constructor(renderer) {
         this.renderer = renderer;
-        
-        if ( 'xr' in navigator ) {
-            
-		} else {
-            
-		}
+
+        if ('xr' in navigator) {
+            const button = document.createElement('button');
+            button.style.display = 'none';
+            button.style.height = '40px';
+            document.body.appendChild(button);
+
+            navigator.xr.isSessionSupported('immersive-vr').then(supported => {
+                supported ? this.showEnterVR(button) : this.showWebXRNotFound(button);
+            })
+        } else {
+
+        }
 
     }
 
-	showEnterVR( button ) {
-    
+    showEnterVR(button) {
+
     }
 
-    disableButton( button ) {
+    disableButton(button) {
 
         button.style.cursor = 'auto';
         button.style.opacity = '0.5';
-        
+
         button.onmouseenter = null;
         button.onmouseleave = null;
 
@@ -33,11 +40,21 @@ class VRButton{
 
     }
 
-    showWebXRNotFound( button ) { 
-    
+    showWebXRNotFound(button) {
+        this.stylizeElement(button, false);
+        this.disableButton(button);
+
+        button.style.diplay = '';
+        button.style.width = '100%';
+        button.style.right = '0px';
+        button.style.buttom = '0px';
+        button.style.border = '';
+        button.style.opacity = '1';
+        button.style.fontSize = '13px';
+        button.textContent = 'VR NOT SUPPORTED!';
     }
 
-    stylizeElement( element, green = true, fontSize = 13, ignorePadding = false ) {
+    stylizeElement(element, green = true, fontSize = 13, ignorePadding = false) {
 
         element.style.position = 'absolute';
         element.style.bottom = '20px';
