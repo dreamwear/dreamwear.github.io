@@ -53,7 +53,6 @@ class VRButton {
         button.innerHTML = '<i class="fas fa-vr-cardboard"></i>';
 
         button.onmouseenter = () => {
-            console.log('currentSession:', currentSession);
             button.style.fontSize = '12px';
             button.textContent = (currentSession === null) ? 'ENTER VR' : 'EXIT VR';
             button.style.opacity = '1';
