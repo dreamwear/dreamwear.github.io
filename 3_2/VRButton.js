@@ -19,7 +19,23 @@ class VRButton {
                 supported ? this.showEnterVR(button) : this.showWebXRNotFound(button);
             });
         } else {
+            const message = document.createElement('a');
+            if (window.isSecureContext === false) {
+                message.href = document.location.href.replace(/^http:/, 'https:');
+                message.innerHTML = "WEBXR NEEDS HTTPS";
+            } else {
+                message.href = 'https://immersiveweb.dev';
+                message.innerHTML = "WEBXR NOT AVAILABLE";
+            }
 
+            message.style.left = '0px';
+            message.style.width = '100%';
+            message.style.textDecoration = 'none';
+            message.style.bottom = '0px';
+            message.style.opacity = '1';
+            this.stylizeElement(message, false);
+
+            document.body.appendChild(message);
         }
 
     }
