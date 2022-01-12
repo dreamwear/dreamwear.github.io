@@ -26,6 +26,8 @@ class VRButton {
 
     showEnterVR(button) {
         let currentSession = null;
+        const self = this;
+
         this.stylizeElement(button, true, 30, true);
 
         button.style.display = '';
@@ -46,9 +48,7 @@ class VRButton {
             button.style.opacity = '0.5';
         };
 
-        const self = this;
-
-        const onSessionStarted = session => {
+        const onSessionStarted = (session) => {
             session.addEventListener('end', onSessionEnded);
 
             self.renderer.xr.setSession(session);
@@ -58,8 +58,8 @@ class VRButton {
             currentSession = session;
         };
 
-        const onSessionEnded = session => {
-            session.removeEventListener('end', onSessionEnded);
+        const onSessionEnded = () => {
+            currentSession.removeEventListener('end', onSessionEnded);
 
             self.stylizeElement(button, true, 12, true);
             button.textContent = 'ENTER VR';
