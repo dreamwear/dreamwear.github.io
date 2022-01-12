@@ -47,7 +47,7 @@ class VRButton {
         button.style.diplay = '';
         button.style.width = '100%';
         button.style.right = '0px';
-        button.style.buttom = '0px';
+        button.style.bottom = '0px';
         button.style.border = '';
         button.style.opacity = '1';
         button.style.fontSize = '13px';
