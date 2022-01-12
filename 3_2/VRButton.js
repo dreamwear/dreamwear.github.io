@@ -85,8 +85,10 @@ class VRButton {
 
         button.onclick = () => {
             if (currentSession === null) {
-                const initSession = { optionalFeatures: ['local-floor', 'bounded-floor'] };
-                navigator.xr.requestSession('immersive-vr', initSession).then(onSessionStarted);
+                navigator.xr.requestSession(
+                    'immersive-vr',
+                    { optionalFeatures: ['local-floor', 'bounded-floor'] }
+                ).then(onSessionStarted);
             } else {
                 currentSession.end();
             }
