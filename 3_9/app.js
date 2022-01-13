@@ -49,14 +49,22 @@ class App {
     setupXR() {
         this.renderer.xr.enabled = true;
 
-        const onSelect = () => {
+        const self = this;
+        let controler;
 
+        const onSelect = () => {
+            const material = new THREE.MeshPhongMaterial({ color: x0FFFFFF * Math.random() });
+            const mesh = new THREE.Mesh(self.geometry, material);
+            mesh.position.set(0, 0, -0.3).applyMatrix4(controler.matrixWorld);
+            mesh.quaternion.setFromRotationMatrix(controler.matrixWorld);
+            self.scene.add(mesh);
+            self.meches.push(mesh);
         };
 
-        const self = this;
         const btn = new ARButton(this.renderer);
-        let controler = this.renderer.xr.getController(0);
-        HTMLFormControlsCollection.addEventListener('select', onSelect);
+
+        controler = this.renderer.xr.getController(0);
+        controler.addEventListener('select', onSelect);
         this.scene.add(controler);
 
         this.renderer.setAnimationLoop(this.render.bind(this));
