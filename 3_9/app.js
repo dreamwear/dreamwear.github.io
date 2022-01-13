@@ -6,6 +6,7 @@ import { ARButton } from '../libs/ARButton.js';
 
 class App {
     constructor() {
+        console.log('A');
         const container = document.createElement('div');
         document.body.appendChild(container);
 
@@ -33,10 +34,9 @@ class App {
         this.controls.update();
 
         this.stats = new Stats();
-        document.body.appendChild(this.stats.dom);
 
         this.initScene();
-        this.setupXR();
+        this.setupVR();
 
         window.addEventListener('resize', this.resize.bind(this));
     }
@@ -46,7 +46,7 @@ class App {
         this.meshes = [];
     }
 
-    setupXR() {
+    setupVR() {
         this.renderer.xr.enabled = true;
 
         const self = this;
