@@ -50,22 +50,22 @@ class App {
         this.renderer.xr.enabled = true;
 
         const self = this;
-        let controler;
+        let controller;
 
-        const onSelect = () => {
-            const material = new THREE.MeshPhongMaterial({ color: x0FFFFFF * Math.random() });
+        function onSelect() {
+            const material = new THREE.MeshPhongMaterial({ color: 0xffffff * Math.random() });
             const mesh = new THREE.Mesh(self.geometry, material);
-            mesh.position.set(0, 0, -0.3).applyMatrix4(controler.matrixWorld);
-            mesh.quaternion.setFromRotationMatrix(controler.matrixWorld);
+            mesh.position.set(0, 0, - 0.3).applyMatrix4(controller.matrixWorld);
+            mesh.quaternion.setFromRotationMatrix(controller.matrixWorld);
             self.scene.add(mesh);
-            self.meches.push(mesh);
-        };
+            self.meshes.push(mesh);
+        }
 
         const btn = new ARButton(this.renderer);
 
-        controler = this.renderer.xr.getController(0);
-        controler.addEventListener('select', onSelect);
-        this.scene.add(controler);
+        controller = this.renderer.xr.getController(0);
+        controller.addEventListener('select', onSelect);
+        this.scene.add(controller);
 
         this.renderer.setAnimationLoop(this.render.bind(this));
     }
