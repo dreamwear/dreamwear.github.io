@@ -37,7 +37,6 @@ class VRButton {
 
             document.body.appendChild(message);
         }
-
     }
 
     showEnterVR(button) {
@@ -118,7 +117,7 @@ class VRButton {
         button.style.border = '';
         button.style.opacity = '1';
         button.style.fontSize = '13px';
-        button.textContent = 'VR NOT SUPPORTED!';
+        button.textContent = 'VR NOT SUPPORTED';
     }
 
     stylizeElement(element, green = true, fontSize = 13, ignorePadding = false) {
@@ -134,7 +133,7 @@ class VRButton {
         element.style.textAlign = 'center';
         element.style.opacity = '0.5';
         element.style.outline = 'none';
-        element.style.zIndex = '999999999';
+        element.style.zIndex = '999999';
     }
 };
 
