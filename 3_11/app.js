@@ -10,6 +10,7 @@ import { ControllerGestures } from '../libs/ControllerGestures.js';
 
 class App {
     constructor() {
+        console.log('3_11');
         const container = document.createElement('div');
         document.body.appendChild(container);
 
