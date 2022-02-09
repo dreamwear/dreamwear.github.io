@@ -1,4 +1,5 @@
-# NODE
+# ---- NODE
+
 # Logs
 logs
 *.log
@@ -104,7 +105,8 @@ dist
 # TernJS port file
 .tern-port
 
-# MACOS
+# ---- MACOS
+
 # General
 .DS_Store
 .AppleDouble
