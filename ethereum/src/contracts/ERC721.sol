@@ -1,7 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-contract ERC721 {
+import "./ERC165.sol";
+
+contract ERC721 is ERC165 {
     event Transfer(
         address indexed from,
         address indexed to,
@@ -91,7 +93,7 @@ contract ERC721 {
         );
         require(
             _to != owner,
-            "ERC721: The supplied address is not the owner of the token"
+            "ERC721: The supplied address is the owner of the token"
         );
 
         _tokenApprovals[_tokenId] = _to;

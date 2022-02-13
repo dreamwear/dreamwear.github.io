@@ -9,7 +9,7 @@ contract DreamWear is ERC721Connector {
     mapping(string => bool) private _dreamExists;
 
     function mint(string memory _dream) public {
-        require(!_dreamExists[_dream], "Error - dream already exists!");
+        require(!_dreamExists[_dream], "Error - Dream already exists!");
 
         dreams.push(_dream);
         uint256 _id = dreams.length - 1;

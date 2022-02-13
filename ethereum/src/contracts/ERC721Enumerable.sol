@@ -19,7 +19,7 @@ contract ERC721Enumerable is ERC721 {
     function tokenByIndex(uint256 _index) external view returns (uint256) {
         require(
             _index < _allTokens.length,
-            "ERC721: global index is out of bounds"
+            "ERC721Enumerable: global index is out of bounds"
         );
         return _allTokens[_index];
     }
@@ -31,7 +31,7 @@ contract ERC721Enumerable is ERC721 {
     {
         require(
             _index < balanceOf(_owner),
-            "ERC721: owner index is out of bounds"
+            "ERC721Enumerable: owner index is out of bounds"
         );
         return _ownedTokens[_owner][_index];
     }
