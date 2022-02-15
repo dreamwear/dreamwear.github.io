@@ -10,16 +10,20 @@ contract ERC721Metadata is IERC721Metadata, ERC165 {
     string private _symbol;
 
     constructor(string memory named, string memory symboled) {
-        _registerInterface(
-            bytes4(
-                keccak256("name()") ^
-                    keccak256("symbol()") ^
-                    keccak256("tokenURI(uint256)")
-            )
-        );
-
         _name = named;
         _symbol = symboled;
+    }
+
+    function supportsInterface(bytes4 interfaceId)
+        public
+        view
+        virtual
+        override(ERC165, IERC165)
+        returns (bool)
+    {
+        return
+            interfaceId == type(IERC721Metadata).interfaceId ||
+            super.supportsInterface(interfaceId);
     }
 
     function name() external view returns (string memory) {

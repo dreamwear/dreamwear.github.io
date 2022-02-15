@@ -4,25 +4,13 @@ pragma solidity ^0.8.0;
 import "./interfaces/IERC165.sol";
 
 contract ERC165 is IERC165 {
-    mapping(bytes4 => bool) private _supportedInterfaces;
-
-    constructor() {
-        // _registerInterface(this.supportsInterface.selector);
-        _registerInterface(bytes4(keccak256("supportsInterface(bytes4)")));
-    }
-
-    // Function finger print: 0x01ffc9a7
-    function supportsInterface(bytes4 interfaceID)
-        external
+    function supportsInterface(bytes4 interfaceId)
+        public
         view
+        virtual
         override
         returns (bool)
     {
-        return _supportedInterfaces[interfaceID];
-    }
-
-    function _registerInterface(bytes4 interfaceID) internal {
-        require(interfaceID != 0xffffffff, "ERC165: invalid interface");
-        _supportedInterfaces[interfaceID] = true;
+        return interfaceId == type(IERC165).interfaceId;
     }
 }

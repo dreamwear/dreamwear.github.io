@@ -13,14 +13,16 @@ contract ERC721Enumerable is IERC721Enumerable, ERC721 {
 
     mapping(uint256 => uint256) private _ownedTokensIndex;
 
-    constructor() {
-        _registerInterface(
-            bytes4(
-                keccak256("totalSupply()") ^
-                    keccak256("tokenByIndex(uint256)") ^
-                    keccak256("tokenOfOwnerByIndex(address,uint256)")
-            )
-        );
+    function supportsInterface(bytes4 interfaceId)
+        public
+        view
+        virtual
+        override(ERC721, IERC165)
+        returns (bool)
+    {
+        return
+            interfaceId == type(IERC721Enumerable).interfaceId ||
+            super.supportsInterface(interfaceId);
     }
 
     function totalSupply() external view returns (uint256) {

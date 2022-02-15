@@ -11,22 +11,16 @@ contract ERC721 is ERC165, IERC721 {
 
     mapping(uint256 => address) private _tokenApprovals;
 
-    constructor() {
-        _registerInterface(
-            bytes4(
-                keccak256("balanceOf(address)") ^
-                    keccak256("ownerOf(uint256)") ^
-                    keccak256(
-                        "safeTransferFrom(address,address,uint256,bytes)"
-                    ) ^
-                    keccak256("safeTransferFrom(address,address,uint256)") ^
-                    keccak256("transferFrom(address,address,uint256)") ^
-                    keccak256("approve(address,uint256)") ^
-                    keccak256("setApprovalForAll(address,bool)") ^
-                    keccak256("getApproved(uint256)") ^
-                    keccak256("isApprovedForAll(address,address)")
-            )
-        );
+    function supportsInterface(bytes4 interfaceId)
+        public
+        view
+        virtual
+        override(ERC165, IERC165)
+        returns (bool)
+    {
+        return
+            interfaceId == type(IERC721).interfaceId ||
+            super.supportsInterface(interfaceId);
     }
 
     function balanceOf(address _owner) public view returns (uint256) {
