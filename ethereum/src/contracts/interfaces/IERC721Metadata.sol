@@ -6,5 +6,5 @@ interface IERC721Metadata {
 
     function symbol() external view returns (string memory _symbol);
 
-    // function tokenURI(uint256 _tokenId) external view returns (string memory);
+    function tokenURI(uint256 _tokenId) external view returns (string memory);
 }

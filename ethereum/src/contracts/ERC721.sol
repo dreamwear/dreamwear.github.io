@@ -11,6 +11,24 @@ contract ERC721 is ERC165, IERC721 {
 
     mapping(uint256 => address) private _tokenApprovals;
 
+    constructor() {
+        _registerInterface(
+            bytes4(
+                keccak256("balanceOf(address)") ^
+                    keccak256("ownerOf(uint256)") ^
+                    keccak256(
+                        "safeTransferFrom(address,address,uint256,bytes)"
+                    ) ^
+                    keccak256("safeTransferFrom(address,address,uint256)") ^
+                    keccak256("transferFrom(address,address,uint256)") ^
+                    keccak256("approve(address,uint256)") ^
+                    keccak256("setApprovalForAll(address,bool)") ^
+                    keccak256("getApproved(uint256)") ^
+                    keccak256("isApprovedForAll(address,address)")
+            )
+        );
+    }
+
     function balanceOf(address _owner) public view returns (uint256) {
         require(
             _owner != address(0),
@@ -31,18 +49,24 @@ contract ERC721 is ERC165, IERC721 {
         return owner;
     }
 
-    // function safeTransferFrom(
-    //     address _from,
-    //     address _to,
-    //     uint256 _tokenId,
-    //     bytes memory data
-    // ) external payable {}
+    /*
+        NOT YET IMPLEMENTED
+    */
+    function safeTransferFrom(
+        address _from,
+        address _to,
+        uint256 _tokenId,
+        bytes memory data
+    ) external payable {}
 
-    // function safeTransferFrom(
-    //     address _from,
-    //     address _to,
-    //     uint256 _tokenId
-    // ) external payable {}
+    /*
+        NOT YET IMPLEMENTED
+    */
+    function safeTransferFrom(
+        address _from,
+        address _to,
+        uint256 _tokenId
+    ) external payable {}
 
     function transferFrom(
         address _from,
@@ -90,6 +114,11 @@ contract ERC721 is ERC165, IERC721 {
         emit Approval(owner, _to, _tokenId);
     }
 
+    /*
+        NOT YET IMPLEMENTED
+    */
+    function setApprovalForAll(address _operator, bool _approved) external {}
+
     function getApproved(uint256 _tokenId) public view returns (address) {
         require(
             _tokenExists(_tokenId),
@@ -98,6 +127,15 @@ contract ERC721 is ERC165, IERC721 {
 
         return _tokenApprovals[_tokenId];
     }
+
+    /*
+        NOT YET IMPLEMENTED
+    */
+    function isApprovedForAll(address _owner, address _operator)
+        external
+        view
+        returns (bool)
+    {}
 
     function _isApprovedOrOwner(address _spender, uint256 _tokenId)
         internal
