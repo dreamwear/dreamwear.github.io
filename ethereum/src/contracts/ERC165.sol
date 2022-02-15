@@ -7,7 +7,8 @@ contract ERC165 is IERC165 {
     mapping(bytes4 => bool) private _supportedInterfaces;
 
     constructor() {
-        _registerInterface(this.supportsInterface.selector);
+        // _registerInterface(this.supportsInterface.selector);
+        _registerInterface(bytes4(keccak256("supportsInterface(bytes4)")));
     }
 
     // Function finger print: 0x01ffc9a7

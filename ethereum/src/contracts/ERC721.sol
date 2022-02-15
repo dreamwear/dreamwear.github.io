@@ -1,21 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
+import "./interfaces/IERC721.sol";
 import "./ERC165.sol";
 
-contract ERC721 is ERC165 {
-    event Transfer(
-        address indexed from,
-        address indexed to,
-        uint256 indexed tokenId
-    );
-
-    event Approval(
-        address indexed owner,
-        address indexed approved,
-        uint256 indexed tokenId
-    );
-
+contract ERC721 is ERC165, IERC721 {
     mapping(uint256 => address) private _tokenOwner;
 
     mapping(address => uint256) private _OwnedTokensCount;
@@ -46,7 +35,7 @@ contract ERC721 is ERC165 {
     //     address _from,
     //     address _to,
     //     uint256 _tokenId,
-    //     bytes data
+    //     bytes memory data
     // ) external payable {}
 
     // function safeTransferFrom(
@@ -65,7 +54,7 @@ contract ERC721 is ERC165 {
             "ERC721: transfer caller is not owner nor approved"
         );
         require(
-            _exists(_tokenId),
+            _tokenExists(_tokenId),
             "ERC721: The supplied 'tokenId' does not exist"
         );
         require(
@@ -84,7 +73,7 @@ contract ERC721 is ERC165 {
         emit Transfer(_from, _to, _tokenId);
     }
 
-    function approve(address _to, uint256 _tokenId) external {
+    function approve(address _to, uint256 _tokenId) public payable {
         address owner = ownerOf(_tokenId);
 
         require(
@@ -101,30 +90,30 @@ contract ERC721 is ERC165 {
         emit Approval(owner, _to, _tokenId);
     }
 
-    function _isApprovedOrOwner(address _spender, uint256 _tokenId)
-        internal
-        view
-        returns (bool)
-    {
+    function getApproved(uint256 _tokenId) public view returns (address) {
         require(
-            _exists(_tokenId),
-            "ERC721: The supplied 'tokenId' does not exist"
-        );
-
-        address owner = ownerOf(_tokenId);
-        return (_spender == owner || _getApproved(_tokenId) == _spender);
-    }
-
-    function _getApproved(uint256 _tokenId) internal view returns (address) {
-        require(
-            _exists(_tokenId),
+            _tokenExists(_tokenId),
             "ERC721: approved query for nonexistent token"
         );
 
         return _tokenApprovals[_tokenId];
     }
 
-    function _exists(uint256 _tokenId) internal view returns (bool) {
+    function _isApprovedOrOwner(address _spender, uint256 _tokenId)
+        internal
+        view
+        returns (bool)
+    {
+        require(
+            _tokenExists(_tokenId),
+            "ERC721: The supplied 'tokenId' does not exist"
+        );
+
+        address owner = ownerOf(_tokenId);
+        return (_spender == owner || getApproved(_tokenId) == _spender);
+    }
+
+    function _tokenExists(uint256 _tokenId) internal view returns (bool) {
         address owner = _tokenOwner[_tokenId];
         return owner != address(0);
     }
@@ -135,7 +124,7 @@ contract ERC721 is ERC165 {
             "ERC721: The supplied address is not a valid address"
         );
         require(
-            !_exists(_tokenId),
+            !_tokenExists(_tokenId),
             "ERC721: The supplied 'tokenId' already exists"
         );
 
