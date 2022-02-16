@@ -4,9 +4,9 @@ pragma solidity ^0.8.0;
 import "./ERC721Connector.sol";
 
 contract DreamWear is ERC721Connector {
-    string[] private dreams;
+    string[] public dreams;
 
-    mapping(string => bool) private _dreamExists;
+    mapping(string => bool) public _dreamExists;
 
     function mint(string memory _dream) public {
         require(!_dreamExists[_dream], "Error - Dream already exists!");
