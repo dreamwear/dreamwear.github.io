@@ -21,9 +21,9 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.11+commit.d7f03943\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/src/contracts/ERC165.sol\":\"ERC165\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/src/contracts/ERC165.sol\":{\"keccak256\":\"0xee11f9203795e6adc38e02022a941a659f5409fd2d3b9d30699b87ac1f8bea4f\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d7b662b99bc4c695014ca7dfb1d9ee018eeda558fc4e22e0953c721c0ea3e706\",\"dweb:/ipfs/QmWsoicntUbTWBrdCDjohB1z5n1zCzY1PVMGLKBePsABVE\"]},\"project:/src/contracts/interfaces/IERC165.sol\":{\"keccak256\":\"0x0bbdb7cf3d2c6acf95398c0ef54cb0e6ae8a3e6ce6f18fafeb0aa55cb74fb8fd\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c98fbfe6aa371f23dba5bb1591a74e1fc521f538e86b5d6d47144fbc61576a5c\",\"dweb:/ipfs/QmY51XEwT2y59gFu717468hHQ2GHqUSWdoqFR4hhDx1N9a\"]}},\"version\":1}",
-  "bytecode": "0x608060405234801561001057600080fd5b5060c78061001f6000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c806301ffc9a714602d575b600080fd5b604e60383660046062565b6001600160e01b0319166301ffc9a760e01b1490565b604051901515815260200160405180910390f35b600060208284031215607357600080fd5b81356001600160e01b031981168114608a57600080fd5b939250505056fea2646970667358221220958eeda544439b8c63d84457ec8c89c1dfd404a8daee789192fe8667629a8e5764736f6c634300080b0033",
-  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060285760003560e01c806301ffc9a714602d575b600080fd5b604e60383660046062565b6001600160e01b0319166301ffc9a760e01b1490565b604051901515815260200160405180910390f35b600060208284031215607357600080fd5b81356001600160e01b031981168114608a57600080fd5b939250505056fea2646970667358221220958eeda544439b8c63d84457ec8c89c1dfd404a8daee789192fe8667629a8e5764736f6c634300080b0033",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.12+commit.f00d7308\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/src/contracts/ERC165.sol\":\"ERC165\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/src/contracts/ERC165.sol\":{\"keccak256\":\"0xee11f9203795e6adc38e02022a941a659f5409fd2d3b9d30699b87ac1f8bea4f\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d7b662b99bc4c695014ca7dfb1d9ee018eeda558fc4e22e0953c721c0ea3e706\",\"dweb:/ipfs/QmWsoicntUbTWBrdCDjohB1z5n1zCzY1PVMGLKBePsABVE\"]},\"project:/src/contracts/interfaces/IERC165.sol\":{\"keccak256\":\"0x5a8249860382d88e529ffc967600bbe99bb2d9130ba6d22c6c63d9fe208308d2\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ada3608264fd2bef11bbdeaa6c4d393fcdee3e1d766601b3a778d1531f32285a\",\"dweb:/ipfs/QmbT1m7R1iad2x7iKzcd35RTG4Hw6giitm6axyB45rgKW2\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5060c78061001f6000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c806301ffc9a714602d575b600080fd5b604e60383660046062565b6001600160e01b0319166301ffc9a760e01b1490565b604051901515815260200160405180910390f35b600060208284031215607357600080fd5b81356001600160e01b031981168114608a57600080fd5b939250505056fea2646970667358221220cbfa4d5213e018bcf351d11c5c4e9844f24c492812c054585442cca0b6bd22a764736f6c634300080c0033",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060285760003560e01c806301ffc9a714602d575b600080fd5b604e60383660046062565b6001600160e01b0319166301ffc9a760e01b1490565b604051901515815260200160405180910390f35b600060208284031215607357600080fd5b81356001600160e01b031981168114608a57600080fd5b939250505056fea2646970667358221220cbfa4d5213e018bcf351d11c5c4e9844f24c492812c054585442cca0b6bd22a764736f6c634300080c0033",
   "immutableReferences": {},
   "generatedSources": [],
   "deployedGeneratedSources": [
@@ -432,7 +432,7 @@
         81
       ],
       "IERC165": [
-        736
+        738
       ]
     },
     "id": 82,
@@ -457,7 +457,7 @@
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
         "scope": 82,
-        "sourceUnit": 737,
+        "sourceUnit": 739,
         "src": "57:34:1",
         "symbolAliases": [],
         "unitAlias": ""
@@ -470,7 +470,7 @@
               "id": 63,
               "name": "IERC165",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 736,
+              "referencedDeclaration": 738,
               "src": "112:7:1"
             },
             "id": 64,
@@ -485,7 +485,7 @@
         "id": 81,
         "linearizedBaseContracts": [
           81,
-          736
+          738
         ],
         "name": "ERC165",
         "nameLocation": "102:6:1",
@@ -493,7 +493,7 @@
         "nodes": [
           {
             "baseFunctions": [
-              735
+              737
             ],
             "body": {
               "id": 79,
@@ -533,10 +533,10 @@
                             "name": "IERC165",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 736,
+                            "referencedDeclaration": 738,
                             "src": "298:7:1",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_type$_t_contract$_IERC165_$736_$",
+                              "typeIdentifier": "t_type$_t_contract$_IERC165_$738_$",
                               "typeString": "type(contract IERC165)"
                             }
                           }
@@ -544,7 +544,7 @@
                         "expression": {
                           "argumentTypes": [
                             {
-                              "typeIdentifier": "t_type$_t_contract$_IERC165_$736_$",
+                              "typeIdentifier": "t_type$_t_contract$_IERC165_$738_$",
                               "typeString": "type(contract IERC165)"
                             }
                           ],
@@ -570,7 +570,7 @@
                         "src": "293:13:1",
                         "tryCall": false,
                         "typeDescriptions": {
-                          "typeIdentifier": "t_magic_meta_type_t_contract$_IERC165_$736",
+                          "typeIdentifier": "t_magic_meta_type_t_contract$_IERC165_$738",
                           "typeString": "type(contract IERC165)"
                         }
                       },
@@ -703,7 +703,7 @@
         81
       ],
       "IERC165": [
-        736
+        738
       ]
     },
     "id": 82,
@@ -728,7 +728,7 @@
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
         "scope": 82,
-        "sourceUnit": 737,
+        "sourceUnit": 739,
         "src": "57:34:1",
         "symbolAliases": [],
         "unitAlias": ""
@@ -741,7 +741,7 @@
               "id": 63,
               "name": "IERC165",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 736,
+              "referencedDeclaration": 738,
               "src": "112:7:1"
             },
             "id": 64,
@@ -756,7 +756,7 @@
         "id": 81,
         "linearizedBaseContracts": [
           81,
-          736
+          738
         ],
         "name": "ERC165",
         "nameLocation": "102:6:1",
@@ -764,7 +764,7 @@
         "nodes": [
           {
             "baseFunctions": [
-              735
+              737
             ],
             "body": {
               "id": 79,
@@ -804,10 +804,10 @@
                             "name": "IERC165",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 736,
+                            "referencedDeclaration": 738,
                             "src": "298:7:1",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_type$_t_contract$_IERC165_$736_$",
+                              "typeIdentifier": "t_type$_t_contract$_IERC165_$738_$",
                               "typeString": "type(contract IERC165)"
                             }
                           }
@@ -815,7 +815,7 @@
                         "expression": {
                           "argumentTypes": [
                             {
-                              "typeIdentifier": "t_type$_t_contract$_IERC165_$736_$",
+                              "typeIdentifier": "t_type$_t_contract$_IERC165_$738_$",
                               "typeString": "type(contract IERC165)"
                             }
                           ],
@@ -841,7 +841,7 @@
                         "src": "293:13:1",
                         "tryCall": false,
                         "typeDescriptions": {
-                          "typeIdentifier": "t_magic_meta_type_t_contract$_IERC165_$736",
+                          "typeIdentifier": "t_magic_meta_type_t_contract$_IERC165_$738",
                           "typeString": "type(contract IERC165)"
                         }
                       },
@@ -969,11 +969,11 @@
   },
   "compiler": {
     "name": "solc",
-    "version": "0.8.11+commit.d7f03943.Emscripten.clang"
+    "version": "0.8.12+commit.f00d7308.Emscripten.clang"
   },
   "networks": {},
   "schemaVersion": "3.4.4",
-  "updatedAt": "2022-02-15T16:26:37.105Z",
+  "updatedAt": "2022-02-16T14:22:36.262Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
