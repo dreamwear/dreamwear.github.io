@@ -167,11 +167,8 @@ class App {
         const self = this;
 
         if (frame) {
-
             if (this.hitTestSourceRequested === false) this.requestHitTestSource()
-
             if (this.hitTestSource) this.getHitTestResults(frame);
-
         }
 
         this.renderer.render(this.scene, this.camera);
