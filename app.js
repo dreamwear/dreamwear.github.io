@@ -1,9 +1,9 @@
 import * as THREE from './libs/three/three.module.js';
-// import { GLTFLoader } from './libs/three/jsm/GLTFLoader.js';
+import { GLTFLoader } from './libs/three/jsm/GLTFLoader.js';
 import { RGBELoader } from './libs/three/jsm/RGBELoader.js';
 import { ARButton } from './libs/ARButton.js';
 import { LoadingBar } from './libs/LoadingBar.js';
-// import { Player } from './libs/Player.js';
+import { Player } from './libs/Player.js';
 
 class App {
     constructor() {
@@ -69,54 +69,50 @@ class App {
         this.renderer.setSize(window.innerWidth, window.innerHeight);
     }
 
-    // loadKnight(){
-    //     const loader = new GLTFLoader().setPath(this.assetsPath);
-    // 	const self = this;
+    loadKnight() {
+        const loader = new GLTFLoader().setPath(this.assetsPath);
+        const self = this;
 
-    // 	// Load a GLTF resource
-    // 	loader.load(
-    // 		// resource URL
-    // 		`knight2.glb`,
-    // 		// called when the resource is loaded
-    // 		function ( gltf ) {
-    // 			const object = gltf.scene.children[5];
+        // Load a GLTF resource
+        loader.load(
+            // resource URL
+            `knight2.glb`,
+            // called when the resource is loaded
+            function (gltf) {
+                const object = gltf.scene.children[5];
 
-    // 			const options = {
-    // 				object: object,
-    // 				speed: 0.5,
-    // 				assetsPath: self.assetsPath,
-    // 				loader: loader,
-    //                 animations: gltf.animations,
-    // 				clip: gltf.animations[0],
-    // 				app: self,
-    // 				name: 'knight',
-    // 				npc: false
-    // 			};
+                const options = {
+                    object: object,
+                    speed: 0.5,
+                    assetsPath: self.assetsPath,
+                    loader: loader,
+                    animations: gltf.animations,
+                    clip: gltf.animations[0],
+                    app: self,
+                    name: 'knight',
+                    npc: false
+                };
 
-    // 			self.knight = new Player(options);
-    //             self.knight.object.visible = false;
+                self.knight = new Player(options);
+                self.knight.object.visible = false;
 
-    // 			self.knight.action = 'Dance';
-    // 			const scale = 0.005;
-    // 			self.knight.object.scale.set(scale, scale, scale); 
+                self.knight.action = 'Dance';
+                const scale = 0.005;
+                self.knight.object.scale.set(scale, scale, scale);
 
-    //             self.loadingBar.visible = false;
-    //             self.renderer.setAnimationLoop( self.render.bind(self) );
-    // 		},
-    // 		// called while loading is progressing
-    // 		function ( xhr ) {
-
-    // 			self.loadingBar.progress = (xhr.loaded / xhr.total);
-
-    // 		},
-    // 		// called when loading has errors
-    // 		function ( error ) {
-
-    // 			console.log( 'An error happened' );
-
-    // 		}
-    // 	);
-    // }		
+                self.loadingBar.visible = false;
+                self.renderer.setAnimationLoop(self.render.bind(self));
+            },
+            // called while loading is progressing
+            function (xhr) {
+                self.loadingBar.progress = (xhr.loaded / xhr.total);
+            },
+            // called when loading has errors
+            function (error) {
+                console.log('An error happened');
+            }
+        );
+    }
 
     initScene() {
         this.reticle = new THREE.Mesh(
@@ -128,7 +124,7 @@ class App {
         this.reticle.visible = false;
         this.scene.add(this.reticle);
 
-        // this.loadKnight();
+        this.loadKnight();
     }
 
     setupXR() {
@@ -199,6 +195,10 @@ class App {
         }
 
         this.renderer.render(this.scene, this.camera);
+
+        /*if (this.knight.calculatedPath && this.knight.calculatedPath.length>0){
+            console.log( `path:${this.knight.calculatedPath[0].x.toFixed(2)}, ${this.knight.calculatedPath[0].y.toFixed(2)}, ${this.knight.calculatedPath[0].z.toFixed(2)} position: ${this.knight.object.position.x.toFixed(2)}, ${this.knight.object.position.y.toFixed(2)}, ${this.knight.object.position.z.toFixed(2)}`);
+        }*/
     }
 }
 
