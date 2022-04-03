@@ -121,7 +121,7 @@ class App {
         // );
 
         // this.reticle.matrixAutoUpdate = false;
-        this.reticle = createPlaneMarker();
+        this.reticle = this.createPlaneMarker();
         this.reticle.visible = false;
         this.scene.add(this.reticle);
 
@@ -130,10 +130,7 @@ class App {
 
     createPlaneMarker() {
         const planeMarkerMaterial = new MeshBasicMaterial({ color: 0xffffff });
-
-        const planeMarkerGeometry = new RingGeometry(0.14, 0.15, 16).rotateX(
-            -Math.PI / 2,
-        );
+        const planeMarkerGeometry = new RingGeometry(0.14, 0.15, 16).rotateX(-Math.PI / 2);
 
         const planeMarker = new Mesh(planeMarkerGeometry, planeMarkerMaterial);
 
