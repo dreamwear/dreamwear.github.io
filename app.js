@@ -121,22 +121,22 @@ class App {
         // );
 
         // this.reticle.matrixAutoUpdate = false;
-        this.reticle = this.createPlaneMarker();
+        this.reticle = this.createReticle();
         this.reticle.visible = false;
         this.scene.add(this.reticle);
 
         this.loadKnight();
     }
 
-    createPlaneMarker() {
-        const planeMarkerMaterial = new MeshBasicMaterial({ color: 0xffffff });
-        const planeMarkerGeometry = new RingGeometry(0.14, 0.15, 16).rotateX(-Math.PI / 2);
+    createReticle() {
+        const reticleMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
+        const reticleGeometry = new THREE.RingGeometry(0.14, 0.15, 16).rotateX(-Math.PI / 2);
 
-        const planeMarker = new Mesh(planeMarkerGeometry, planeMarkerMaterial);
+        const reticle = new THREE.Mesh(reticleGeometry, reticleMaterial);
 
-        planeMarker.matrixAutoUpdate = false;
+        reticle.matrixAutoUpdate = false;
 
-        return planeMarker;
+        return reticle;
     }
 
     setupXR() {
