@@ -115,16 +115,31 @@ class App {
     }
 
     initScene() {
-        this.reticle = new THREE.Mesh(
-            new THREE.RingBufferGeometry(0.15, 0.2, 32).rotateX(- Math.PI / 2),
-            new THREE.MeshBasicMaterial()
-        );
+        // this.reticle = new THREE.Mesh(
+        //     new THREE.RingBufferGeometry(0.15, 0.2, 32).rotateX(- Math.PI / 2),
+        //     new THREE.MeshBasicMaterial()
+        // );
 
-        this.reticle.matrixAutoUpdate = false;
+        // this.reticle.matrixAutoUpdate = false;
+        this.reticle = createPlaneMarker();
         this.reticle.visible = false;
         this.scene.add(this.reticle);
 
         this.loadKnight();
+    }
+
+    createPlaneMarker() {
+        const planeMarkerMaterial = new MeshBasicMaterial({ color: 0xffffff });
+
+        const planeMarkerGeometry = new RingGeometry(0.14, 0.15, 16).rotateX(
+            -Math.PI / 2,
+        );
+
+        const planeMarker = new Mesh(planeMarkerGeometry, planeMarkerMaterial);
+
+        planeMarker.matrixAutoUpdate = false;
+
+        return planeMarker;
     }
 
     setupXR() {
