@@ -33,13 +33,14 @@
 <body style='margin : 0px; overflow: hidden;'>
     <!-- a-scene defines the scene that we are agoing to use. After arjs= there are various options that can be customized  -->
     <!-- depending on your needs. For now just stick with these ones -->
-    <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'>
+    <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'
+        gltf-model="dracoDecoderPath: ./libs/draco-decoder;">
 
         <!-- Here we load the asset of the robot, pointing to its file. A-frame works with GLTF and GLB models. -->
         <!-- We define a name for this asset, that is "robot" -->
         <a-assets>
             <!-- BrainStem model created by Keith Hunter and owned by Smith Micro Software, Inc. Exported from Poser and made available under clause (g) of “Legitimate Uses” as defined by the Poser Pro EULA. -->
-            <a-asset-item id="robot" src="./assets/spartan-armour-mkv-halo-reach/spartan-unlinked.glb"></a-asset-item>
+            <a-asset-item id="robot" src="./assets/spartan-armour-mkv-halo-reach/spartan.glb"></a-asset-item>
         </a-assets>
 
         <!-- Defines the marker that we are going to use. Notice that we are not providing the image file, but the  -->
@@ -50,7 +51,8 @@
             <!-- Notice the mention to the name robot that we specified above. -->
             <!-- The animation-mixer is the A-frame component to control the animation of the 3D model. Since we are not specifiying any animation -->
             <!-- name, it just loops all the animations of the model  -->
-            <a-entity gltf-model="#robot" scale="0.01 0.01 0.01" animation-mixer></a-entity>
+            <a-entity gltf-model="#robot" scale="0.01 0.01 0.01" animation-mixer gltf-model="url(spartans.glb)">
+            </a-entity>
 
         </a-marker>
 
